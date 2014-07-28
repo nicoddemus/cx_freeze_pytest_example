@@ -8,4 +8,5 @@ install:
 script:
   - python setup.py build --build-exe bin
   - pip uninstall pytest -y
+  - zip -l bin/library.zip # debug
   - bin/runtests --pytest --verbose tests
