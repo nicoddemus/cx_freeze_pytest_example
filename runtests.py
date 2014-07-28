@@ -9,9 +9,9 @@ if __name__ == '__main__':
     # check manually if we plan to use pytest, so we leave argument handling
     # to pytest's main.
     if len(sys.argv) > 1 and sys.argv[1] == '--pytest':
-        import pytest
         import _pytest.capture
         print('DEBUG:' + _pytest.capture.__file__)
+        import pytest
         sys.exit(pytest.main(sys.argv[2:]))
     else:
         # now argv can be parsed by your arguments parsing library of choice
