@@ -1,0 +1,11 @@
+language: python
+
+python: 2.7
+
+install:
+  - pip install cx_freeze
+
+script:
+  - python setup.py build --build-exe bin
+  - pip uninstall pytest -y
+  - bin/runtests --pytest --verbose tests
