@@ -2,7 +2,7 @@ cx_freeze_pytest_example
 ========================
  
 Example on how to embed the [py.test](http://pytest.org) runner into an executable 
-using [cx_freeze](cx-freeze.readthedocs.org).
+using [cx_freeze](http://cx-freeze.readthedocs.org).
 
 This unfortunately is not as straightforward as one hopes, because `pytest` makes heavy use
 of dynamic module loading which `cx_freeze` can't resolve by itself.
