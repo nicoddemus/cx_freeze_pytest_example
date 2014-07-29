@@ -3,11 +3,12 @@ language: python
 python: 2.7
 
 install:
+  - sudo apt-get install python-dev
   - pip install cx_freeze
   - pip install --upgrade pytest
 
 script:
   - python setup.py build --build-exe bin
-  - pip uninstall pytest -y
+  - pip uninstall pytest
   - unzip -l bin/library.zip # debug
   - bin/runtests --pytest --verbose tests
