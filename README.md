@@ -53,9 +53,9 @@ $ bin/runtests --pytest --verbose tests
 platform win32 -- Python 2.7.6 -- py-1.4.22 -- pytest-2.6.0 -- X:\pytest_cx_freeze\bin\runtests.exe
 collected 3 items
 
-tests\test_doctest.txt::[doctest] tests/test_doctest.txt PASSED
-tests\test_trivial.py@2::test_upper PASSED
-tests\test_trivial.py@5::test_lower PASSED
+tests/test_doctest.txt::[doctest] tests/test_doctest.txt PASSED
+tests/test_trivial.py@2::test_upper PASSED
+tests/test_trivial.py@5::test_lower PASSED
 ```
 
 Wait, why would you do that?
