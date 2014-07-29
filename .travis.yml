@@ -13,4 +13,9 @@ script:
   - unzip -l bin/library.zip # debug
   - cd bin
   - ./runtests
+  # this does not work on travis right now (but works on Ubuntu):
+  # we get a ImportError about not being able to import _pytest.capture, but
+  # _pytest.capture actually fails to import because this error:
+  # ImportError: /.../cx_freeze_pytest_example/bin/_io.so: undefined symbol: _PyLong_AsInt
+  # Any help is appreciated!
   - ./runtests --pytest --verbose tests
