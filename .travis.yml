@@ -12,4 +12,5 @@ script:
   - pip uninstall pytest -y
   - unzip -l bin/library.zip # debug
   - cd bin
+  - ./runtests
   - ./runtests --pytest --verbose tests
