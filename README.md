@@ -1,11 +1,28 @@
 cx_freeze_pytest_example
 ========================
- 
+
 Example on how to embed the [py.test](http://pytest.org) runner into an executable 
 using [cx_freeze](http://cx-freeze.readthedocs.org).
 
 This unfortunately is not as straightforward as one hopes, because `pytest` makes heavy use
 of dynamic module loading which `cx_freeze` can't resolve by itself.
+
+**Important**: since release **2.6.2** pytest has included freezing support
+by providing a `pytest.freeze_includes()` function which makes the job
+significantly easier. See the [official docs] for details.
+
+Wait, why would you do that?
+----------------------------
+
+If you freeze your application using a tool like `cx_freeze` in order to 
+distribute it to your end-users, 
+it is a good idea to also package your test runner and run your tests using 
+the frozen application. 
+
+This way you can detect packaging errors such as dependencies not being 
+included into the executable while also allowing you to send test files to
+users so they can run them in their machines, which can be invaluable to 
+obtain more information about a hard to reproduce bug.
 
 Solution
 --------
@@ -58,15 +75,3 @@ tests/test_trivial.py@2::test_upper PASSED
 tests/test_trivial.py@5::test_lower PASSED
 ```
 
-Wait, why would you do that?
-----------------------------
-
-If you freeze your application using a tool like `cx_freeze` in order to 
-distribute it to your end-users, 
-it is a good idea to also package your test runner and run your tests using 
-the frozen application. 
-
-This way you can detect packaging errors such as dependencies not being 
-included into the executable while also allowing you to send test files to
-users so they can run them in their machines, which can be invaluable to 
-obtain more information about a hard to reproduce bug.
