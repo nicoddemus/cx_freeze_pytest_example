@@ -9,7 +9,7 @@ of dynamic module loading which `cx_freeze` can't resolve by itself.
 
 **Important**: since release **2.6.2** pytest has included freezing support
 by providing a `pytest.freeze_includes()` function which makes the job
-significantly easier. See the [official docs] for details.
+significantly easier. See the [official docs](http://pytest.org/latest/example/simple.html?highlight=freeze_includes#integrating-pytest-runner-and-cx-freeze) for details.
 
 Wait, why would you do that?
 ----------------------------
