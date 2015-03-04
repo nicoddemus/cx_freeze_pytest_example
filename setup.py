@@ -42,6 +42,28 @@ includes = [
     'py._xmlgen',
     'py._error',
     'py._std',
+    'py._log.log',
+    'py._log.warning',
+
+    'xdist.dsession',
+    'xdist.looponfail',
+    'xdist.newhooks',
+    'xdist.plugin',
+    'xdist.remote',
+    'xdist.slavemanage',
+
+    'execnet.apipkg',
+    'execnet.deprecated',
+    'execnet.gateway',
+    'execnet.gateway_base',
+    'execnet.gateway_io',
+    'execnet.gateway_socket',
+    'execnet.gateway_bootstrap',
+    'execnet.multi',
+    'execnet.rsync',
+    'execnet.rsync_remote',
+    'execnet.threadpool',
+    'execnet.xspec',
 
     # builtin files imported by pytest using py.std implicit mechanism
     'argparse',
@@ -54,7 +76,11 @@ setup(
     name="runtests",
     version="0.1",
     description="exemple of how embedding py.test into an executable using cx_freeze",
-    executables=[Executable("runtests.py")],
-    options={"build_exe": {'includes': includes}},
+    executables=[Executable("runtests.py", base='Win32GUI')],
+    options={"build_exe":
+        {'includes': includes,
+        'init_script': 'ConsoleRedirect',
+        }
+    },
 )
 
